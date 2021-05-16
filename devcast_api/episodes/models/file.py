@@ -1,7 +1,5 @@
 from django.db import models
 
-from devcast_api.episodes.models import Episode
-
 
 class File(models.Model):
     TYPE_CHOICES = (
@@ -9,7 +7,6 @@ class File(models.Model):
         ('audio/mp3', 'mp3')
     )
 
-    episode = models.ForeignKey(Episode, on_delete=models.CASCADE, related_name='files')
     url = models.URLField()
     type = models.CharField('Tipo', choices=TYPE_CHOICES, max_length=25)
     duration = models.IntegerField('Duração')
