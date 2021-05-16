@@ -1,0 +1,15 @@
+version: '3.1'
+services:
+  db:
+    image: postgres:11.2-alpine
+    container_name: postgres-devcast
+    env_file: .env
+    volumes:
+      - ../devcast-postgres-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+networks:
+  default:
+    external:
+      name: devcast-network
