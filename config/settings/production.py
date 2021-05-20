@@ -1,5 +1,6 @@
 from .base import *  # noqa
 from .base import env
+import django_heroku
 
 # GENERAL
 # ------------------------------------------------------------------------------
@@ -132,7 +133,7 @@ LOGGING = {
     "formatters": {
         "verbose": {
             "format": "%(levelname)s %(asctime)s %(module)s "
-            "%(process)d %(thread)d %(message)s"
+                      "%(process)d %(thread)d %(message)s"
         }
     },
     "handlers": {
@@ -164,3 +165,6 @@ LOGGING = {
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+
+# Configure Django App for Heroku.
+django_heroku.settings(locals())
