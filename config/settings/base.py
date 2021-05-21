@@ -53,7 +53,10 @@ LOCALE_PATHS = [ROOT_DIR.path("locale")]
 #     }
 # }
 # DATABASES["default"]["ATOMIC_REQUESTS"] = True
-
+DATABASES = {
+    "default": env.db("DATABASE_URL", default="postgres:///heroku")
+}
+DATABASES["default"]["ATOMIC_REQUESTS"] = True
 # URLS
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#root-urlconf
