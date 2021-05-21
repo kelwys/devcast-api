@@ -1,6 +1,7 @@
 """
 Base settings to build other settings files upon.
 """
+import dj_database_url
 import django_heroku
 import environ
 
@@ -54,7 +55,7 @@ LOCALE_PATHS = [ROOT_DIR.path("locale")]
 # }
 # DATABASES["default"]["ATOMIC_REQUESTS"] = True
 DATABASES = {
-    "default": env.db("DATABASE_URL", default="postgres:///heroku")
+    "default": dj_database_url.config(default='postgres://localhost'),
 }
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 # URLS
