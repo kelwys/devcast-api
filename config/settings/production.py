@@ -1,4 +1,4 @@
-import django_heroku
+# import django_heroku
 
 from .base import *  # noqa
 from .base import env
@@ -168,4 +168,4 @@ LOGGING = {
 # ------------------------------------------------------------------------------
 
 # Configure Django App for Heroku.
-django_heroku.settings(locals())
+# django_heroku.settings(locals())

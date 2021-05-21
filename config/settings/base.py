@@ -1,8 +1,7 @@
 """
 Base settings to build other settings files upon.
 """
-import dj_database_url
-import django_heroku
+# import django_heroku
 import environ
 
 ROOT_DIR = (
@@ -55,7 +54,7 @@ LOCALE_PATHS = [ROOT_DIR.path("locale")]
 # }
 # DATABASES["default"]["ATOMIC_REQUESTS"] = True
 DATABASES = {
-    "default": dj_database_url.config(default='postgres://localhost'),
+    "default": env.db("DATABASE_URL", default="postgres:///heroku")
 }
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 # URLS
@@ -281,4 +280,4 @@ ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 ACCOUNT_ADAPTER = "devcast_api.users.adapters.AccountAdapter"
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 SOCIALACCOUNT_ADAPTER = "devcast_api.users.adapters.SocialAccountAdapter"
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
