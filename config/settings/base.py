@@ -1,7 +1,7 @@
 """
 Base settings to build other settings files upon.
 """
-
+import django_heroku
 import environ
 
 ROOT_DIR = (
@@ -280,3 +280,4 @@ ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 ACCOUNT_ADAPTER = "devcast_api.users.adapters.AccountAdapter"
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 SOCIALACCOUNT_ADAPTER = "devcast_api.users.adapters.SocialAccountAdapter"
+django_heroku.settings(locals())
