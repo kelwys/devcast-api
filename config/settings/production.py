@@ -1,5 +1,3 @@
-# import django_heroku
-
 from .base import *  # noqa
 from .base import env
 
@@ -16,20 +14,6 @@ DATABASES["default"] = env.db("DATABASE_URL")  # noqa F405
 DATABASES["default"]["ATOMIC_REQUESTS"] = True  # noqa F405
 DATABASES["default"]["CONN_MAX_AGE"] = env.int("CONN_MAX_AGE", default=60)  # noqa F405
 
-# CACHES
-# ------------------------------------------------------------------------------
-# CACHES = {
-#     "default": {
-#         "BACKEND": "django_redis.cache.RedisCache",
-#         "LOCATION": env("REDIS_URL"),
-#         "OPTIONS": {
-#             "CLIENT_CLASS": "django_redis.client.DefaultClient",
-#             # Mimicing memcache behavior.
-#             # http://niwinz.github.io/django-redis/latest/#_memcached_exceptions_behavior
-#             "IGNORE_EXCEPTIONS": True,
-#         },
-#     }
-# }
 
 # SECURITY
 # ------------------------------------------------------------------------------
@@ -166,6 +150,3 @@ LOGGING = {
 
 # Your stuff...
 # ------------------------------------------------------------------------------
-
-# Configure Django App for Heroku.
-# django_heroku.settings(locals())

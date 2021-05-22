@@ -1,7 +1,6 @@
 """
 Base settings to build other settings files upon.
 """
-# import django_heroku
 import environ
 
 ROOT_DIR = (
@@ -42,17 +41,6 @@ LOCALE_PATHS = [ROOT_DIR.path("locale")]
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
-# DATABASES = {
-#     "default": {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': env('POSTGRES_DB'),
-#         'USER': env('POSTGRES_USER'),
-#         'PASSWORD': env('POSTGRES_PASSWORD'),
-#         'HOST': env('POSTGRES_HOST'),
-#         'PORT': env('POSTGRES_PORT'),
-#     }
-# }
-# DATABASES["default"]["ATOMIC_REQUESTS"] = True
 DATABASES = {
     "default": env.db("DATABASE_URL", default="postgres:///heroku")
 }
@@ -280,4 +268,3 @@ ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 ACCOUNT_ADAPTER = "devcast_api.users.adapters.AccountAdapter"
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 SOCIALACCOUNT_ADAPTER = "devcast_api.users.adapters.SocialAccountAdapter"
-# django_heroku.settings(locals())
